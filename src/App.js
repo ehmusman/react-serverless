@@ -8,7 +8,7 @@ function App() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await axios.get("/.netlify/functions/hello?name=from H M Usman")
+      const res = await axios.get("/.netlify/functions/hello?name=from H M Usman Updated")
       setData(res.data.message)
     }
     fetchData()
