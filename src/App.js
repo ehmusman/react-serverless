@@ -1,7 +1,18 @@
+import React, { useEffect, useState } from "react"
 import logo from './logo.svg';
 import './App.css';
-
+import axios from "axios"
 function App() {
+
+  const [data, setData] = useState("")
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await axios.get("/.netlify/functions/hello?name=from H M Usman")
+      setData(res.data.message)
+    }
+    fetchData()
+  }, [])
   return (
     <div className="App">
       <header className="App-header">
@@ -15,7 +26,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          H M Usman
+          {data}
         </a>
       </header>
     </div>
